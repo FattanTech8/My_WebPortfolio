@@ -1,0 +1,190 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* Animated Border Container */
+.animated-border {
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #001f3f, #003366, #001f3f);
+    background-size: 600% 600%;
+    animation: gradientFlow 10s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Content Container */
+.content {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #001f3f;
+    position: relative;
+    z-index: 1;
+}
+
+/* Inner Animated Border Effect */
+.content::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 19px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff, #ff00cc);
+    background-size: 600% 600%;
+    z-index: -1;
+    animation: borderFlow 10s ease infinite;
+    filter: blur(8px);
+}
+
+/* Border Flow Animation */
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* Certifications Section */
+.certifications {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Certification Row */
+.certification-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #002b5c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.certification-row:hover {
+    transform: translateY(-5px);
+}
+
+/* Certification Card */
+.certification-card {
+    flex: 1;
+    background-color: #003366;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.certification-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.certification-card .issuer,
+.certification-card .date {
+    font-size: 0.9rem;
+    color: #b0c4de;
+    margin-bottom: 5px;
+}
+
+.certification-card .description {
+    font-size: 0.85rem;
+    color: #dcdcdc;
+    margin-top: 10px;
+}
+
+/* Hover Effects on Certification Cards */
+.certification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #b0c4de;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .certification-row {
+        flex-direction: column;
+    }
+
+    .certification-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .animated-border {
+        padding: 10px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .certification-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .certification-row {
+        padding: 15px;
+    }
+}
